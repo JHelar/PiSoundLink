@@ -1,0 +1,19 @@
+{
+  "name": "soundlinkpi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "node index.js"
+  },
+  "author": "John Larsson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2",
+    "firebase": "^4.6.1",
+    "node-omxplayer": "^0.6.1",
+    "rx": "^4.1.0",
+    "shelljs": "^0.7.8"
+  }
+}
