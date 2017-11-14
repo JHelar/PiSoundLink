@@ -1,11 +1,7 @@
 const Rx = require('rx');
-const firebase = require('firebase');
-const config = require('./config').firebaseConfig;
 const util = require('./utils');
 
-const app = firebase.initializeApp(config);
-
-const makePlaylist = (fb) => {
+exports.makePlaylist = (fb) => {
     const playlistQuery = fb.database().ref('/playlist');
     let isInitialized = false;
     let playlistSource = [];
@@ -56,7 +52,7 @@ const makePlaylist = (fb) => {
 
     const updateSong = (args) => {
         const { key, value } = args;
-        playlistQuery.child(key).set(value);
+        return playlistQuery.child(key).set(value);
     }
 
     return {
@@ -66,5 +62,3 @@ const makePlaylist = (fb) => {
         updateSong,
     }
 }
-
-exports.playlist = makePlaylist(firebase);

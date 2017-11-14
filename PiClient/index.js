@@ -1,9 +1,12 @@
+const firebase = require('firebase');
+const config = require('./config').firebaseConfig;
+const firebaseapp = firebase.initializeApp(config);
+
 const express = require('express');
 const app = express();
 
 const players = require('./player');
-const playlist = require('./database').playlist;
-const util = require('./utils');
+const playlist = require('./database').makePlaylist(firebase);
 
 const youtube = players.makeYoutube();
 const player = players.makePlayer(playlist);
