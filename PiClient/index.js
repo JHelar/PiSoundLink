@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 
 const players = require('./player');
-const playlist = require('./database').playlist;
-const util = require('./utils');
+const playlist = require('../Common/database').playlist;
+const util = require('../Common/utils');
 
 const youtube = players.makeYoutube();
 const player = players.makePlayer(playlist);

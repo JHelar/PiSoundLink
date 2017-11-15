@@ -1,7 +1,7 @@
 const shell = require('shelljs');
-const util = require('./utils');
+const util = require('../Common/utils');
 const EventEmitter = require('events');
-const urlMatch = require('./urlmatch').makeUrlMatch();
+const urlMatch = require('../Common/urlmatch').makeUrlMatch();
 const omxplayer = require('node-omxplayer');
 
 exports.makePlayer = (playlist) => {
