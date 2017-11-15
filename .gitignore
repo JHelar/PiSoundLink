@@ -57,3 +57,45 @@ typings/
 # dotenv environment variables file
 .env
 
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/AngularClient/dist
+/AngularClient/tmp
+/AngularClient/out-tsc
+
+# dependencies
+/AngularClient/node_modules
+
+# IDEs and editors
+/AngularClient/.idea
+/AngularClient/.project
+/AngularClient/.classpath
+/AngularClient/.c9/
+/AngularClient/*.launch
+/AngularClient/.settings/
+/AngularClient/*.sublime-workspace
+
+# IDE - VSCode
+/AngularClient/.vscode/*
+/AngularClient/!.vscode/settings.json
+/AngularClient/!.vscode/tasks.json
+/AngularClient/!.vscode/launch.json
+/AngularClient/!.vscode/extensions.json
+
+# misc
+/AngularClient/.sass-cache
+/AngularClient/connect.lock
+/AngularClient/coverage
+/AngularClient/libpeerconnection.log
+/AngularClient/npm-debug.log
+/AngularClient/testem.log
+/AngularClient/typings
+
+# e2e
+/AngularClient/e2e/*.js
+/AngularClient/e2e/*.map
+
+# System Files
+/AngularClient/.DS_Store
+/AngularClient/Thumbs.db
