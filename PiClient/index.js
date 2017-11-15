@@ -1,3 +1,7 @@
+const firebase = require('firebase');
+const config = require('./config').firebaseConfig;
+const firebaseapp = firebase.initializeApp(config);
+
 const express = require('express');
 const app = express();
 

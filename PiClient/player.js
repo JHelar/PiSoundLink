@@ -23,6 +23,8 @@ exports.makePlayer = (playlist) => {
                         played: value.played,
                         args: newArgs 
                     } 
+                }).then(val => {
+                    if(!currentSong) nextSong();
                 });
             });
         }
