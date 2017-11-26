@@ -14,6 +14,7 @@ exports.makePlaylist = (fb) => {
                 value: val
             };
             playlistSource.push(newSong);
+            playlistSource.sort((a, b) => a.order > b.order);
             return newSong;
         }
         return null;
@@ -55,19 +56,10 @@ exports.makePlaylist = (fb) => {
         return playlistQuery.child(key).set(value);
     }
 
-    const addSong = (player, args) => {
-        const songObj = {
-            player: player,
-            args: args
-        }
-        return playlistQuery.set(songObj);
-    }
-
     return {
         list: playlistSource,
         onPlaylistReady,
         onSongAdded,
-        updateSong,
-        addSong
+        updateSong
     }
 }
