@@ -1,7 +1,7 @@
 const Rx = require('rx');
 const util = require('./utils');
 
-exports.makePlaylist = (fb) => {
+exports.makePlaylist = fb => {
     const playlistQuery = fb.database().ref('/playlist');
     let isInitialized = false;
     let playlistSource = [];

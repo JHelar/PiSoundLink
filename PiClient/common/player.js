@@ -5,14 +5,13 @@ const omxplayer     = require('node-omxplayer');
 const urlMatch      = require('./matchers').makeUrlMatch();
 const util          = require('./utils');
 
-exports.makePlayer = (playlist) => {
+exports.makePlayer = playlist => {
     let currentPlayer = null;
     let players = [];
     let currentSong = null;
 
     const prepSong = args => {
         let { key , value } = args;
-        console.log('Prep song: ', args);
         let player = util.find(players, p => p.name === value.player);
         if(player){
             player.preLoad(value).then(song => {
@@ -35,7 +34,7 @@ exports.makePlayer = (playlist) => {
             playlist.updateSong(currentSong);
             if(player){
                 currentPlayer = player;
-                return currentPlayer.play(currentPlayer.makeArgs(value.args));  
+                return currentPlayer.play(currentPlayer.preLoad(value));  
             }
         }
     }
@@ -95,6 +94,7 @@ exports.makeYoutube = () => {
     
     const preLoad = song => new Promise((res, reject) => {
         const { args } = song;
+        console.log('Song need preload: ', args.songUrl && song.info);
         if(args.songUrl && song.info){
             res(song);
         }
