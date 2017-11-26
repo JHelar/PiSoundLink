@@ -69,7 +69,6 @@ exports.makePlayer = (playlist) => {
         register: (name, player) => {
             players.push(Object.assign({ name }, player));
             player.onStopped(() => {
-                
                 nextSong();
             })
         },
