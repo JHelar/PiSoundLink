@@ -3,7 +3,10 @@
 <ul>
   <li *ngFor="let song of playlist | async">
     <strong>{{ song.player }} <small>{{ song.order }}</small></strong>
-    <strong>{{ song.title }}</strong>
+    <div *ngIf="song.info">
+      Titel: <i>{{song.info.title }}</i>
+      Duration: <i>{{ song.info.duration }}</i>
+    </div>
   </li>
 </ul>
 <div style="text-align:center">
