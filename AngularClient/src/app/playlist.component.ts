@@ -24,10 +24,15 @@ export class PlaylistComponent {
     }
 
     Add(song: Song){
-        song.order = this.songOrder + 1;
+        this.songOrder = this.songOrder + 1 || 1;
+        song.order = this.songOrder;
         this.playlistRef.push(song).then((song_item: any) => {
             song.key = song_item.key;
             this.playlistRef.update(song.key, song);
         })
+    }
+
+    Remove(key: string){
+        this.playlistRef.remove(key);
     }
 }

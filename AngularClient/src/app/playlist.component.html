@@ -1,8 +1,13 @@
 <ul class="list ma0 pa0 flex flex-column">
-    <li *ngFor="let song of playlist | async" [class.green]="!song.played" class="w-100 pa2">
+    <li *ngFor="let song of playlist | async" [class.green]="!song.played" class="w-100 pa2 flex flex-wrap">
         <span class="mr2"><strong>{{ song.order }}</strong></span>
         <span [class.red]="song.player === 'Youtube'" [class.navy]="song.player === 'Livestream'"><strong class="black">Player: </strong>{{ song.player }}</span>
         <span><strong class="black">Played: </strong>{{ song.played }}</span>
+        <button (click)="Remove(song.key)" class="bn red pa1">X</button>
+        <div *ngIf="song.info" class="w-100 pa1 white bg-green flex flex-column">
+            <span><strong>Title: </strong>{{ song.info.title }}</span>
+            <span><strong>Duration: </strong>{{ song.info.duration }}</span>
+        </div>
     </li>
 </ul>
 <p>Add youtube song:</p>
