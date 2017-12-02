@@ -9,10 +9,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { firebaseConfig } from './firebase_config';
 
 import { AppComponent } from './app.component';
+import { PlaylistComponent } from './playlist.component';
+import { YoutubeComponent } from './youtube.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlaylistComponent,
+    YoutubeComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,8 @@ import { AppComponent } from './app.component';
     AngularFireAuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

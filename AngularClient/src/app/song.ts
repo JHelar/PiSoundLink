@@ -12,16 +12,7 @@ export interface Song {
     args: any
 }
 
-interface YoutubeArgs {
+export interface YoutubeArgs {
     url: string,
     songUrl: string
 }
-
-export interface YoutubeSong extends Song {
-    args: YoutubeArgs
-}
-
-
-
-
-

@@ -1,16 +1,2 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<h1>Songs: </h1>
-<ul>
-  <li *ngFor="let song of playlist | async">
-    <strong>{{ song.player }} <small>{{ song.order }}</small></strong>
-    <div *ngIf="song.info">
-      Titel: <i>{{song.info.title }}</i>
-      Duration: <i>{{ song.info.duration }}</i>
-    </div>
-  </li>
-</ul>
-<div style="text-align:center">
-  Add song
-</div>
-<h1>{{youtubeModel.args.url}}</h1>
-<input [(ngModel)]="youtubeModel.args.url" placeholder="Enter Youtube URL..." id="youtube-url" type="text" (keyup.enter)="AddYoutube()"/>
+<h1>{{ title }}</h1>
+<playlist></playlist>

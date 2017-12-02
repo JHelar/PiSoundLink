@@ -1,0 +1,9 @@
+<ul class="list ma0 pa0 flex flex-column">
+    <li *ngFor="let song of playlist | async" [class.green]="!song.played" class="w-100 pa2">
+        <span class="mr2"><strong>{{ song.order }}</strong></span>
+        <span [class.red]="song.player === 'Youtube'" [class.navy]="song.player === 'Livestream'"><strong class="black">Player: </strong>{{ song.player }}</span>
+        <span><strong class="black">Played: </strong>{{ song.played }}</span>
+    </li>
+</ul>
+<p>Add youtube song:</p>
+<youtube (onAdd)="Add($event)"></youtube>
