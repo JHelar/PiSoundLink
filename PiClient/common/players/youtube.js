@@ -2,8 +2,8 @@ const shell         = require('shelljs');
 const EventEmitter  = require('events');
 const omxplayer     = require('node-omxplayer');
 
-const urlMatch      = require('./matchers').makeUrlMatch();
-const util          = require('./utils');
+const urlMatch      = require('../matchers').makeUrlMatch();
+const util          = require('../utils');
 
 exports.makeYoutube = () => {
     let player = new omxplayer();

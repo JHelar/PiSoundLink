@@ -5,7 +5,8 @@ const firebaseapp   = firebase.initializeApp(config);
 const express       = require('express');
 const app           = express();
 
-const playlist      = require('./common/database').playlist;
+const players       = require('./common/player');
+const playlist      = require('./common/database').makePlaylist(firebase);
 const util          = require('./common/utils');
 
 const player        = require('./common/player').makePlayer(playlist);

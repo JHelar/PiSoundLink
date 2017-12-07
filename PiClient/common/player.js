@@ -1,13 +1,12 @@
 const util          = require('./utils');
 
-exports.makePlayer = (playlist) => {
+exports.makePlayer = playlist => {
     let currentPlayer = null;
     let players = [];
     let currentSong = null;
 
     const prepSong = args => {
         let { key , value } = args;
-        console.log('Prep song: ', args);
         let player = util.find(players, p => p.name === value.player);
         if(player){
             player.preLoad(value).then(song => {
@@ -23,6 +22,7 @@ exports.makePlayer = (playlist) => {
 
     const play = () => {
         if(currentSong) {
+            console.log('Player: Playing: ', currentSong);
             let { key, value } = currentSong;
             let player = util.find(players, p => p.name === value.player);
             
@@ -30,14 +30,15 @@ exports.makePlayer = (playlist) => {
             playlist.updateSong(currentSong);
             if(player){
                 currentPlayer = player;
-                return currentPlayer.play(currentPlayer.makeArgs(value.args));  
+                return currentPlayer.play(currentPlayer.preLoad(value));  
             }
         }
     }
 
     const nextSong = () => {
         let song = null;
-        if(currentSong) song = util.find(playlist.list, s => s.value.order === (currentSong.order + 1))
+        console.log('Player: Next song.');
+        if(currentSong) song = util.find(playlist.list, s => s.value.order === (currentSong.value.order + 1))
         else song = util.find(playlist.list, s => !s.value.played);
         currentSong = song;
         
