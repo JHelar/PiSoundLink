@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Song } from './song';
 
 @Component({
@@ -7,4 +7,9 @@ import { Song } from './song';
 })
 export class SongDisplayComponent {
     @Input() song: Song;
+    @Output() remove: EventEmitter<string> = new EventEmitter();
+
+    Remove() {
+        this.remove.emit(this.song.key);
+    }
 }
