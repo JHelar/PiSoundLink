@@ -35,7 +35,10 @@ exports.makePlaylist = fb => {
         }
     })
     playlistQuery.on('child_removed', (snap) => {
+        console.log('Playlist remove song: ', snap);
+        console.log('Playlist current list: ', playlistSource);
         const removed = util.remove(playlistSource, song => song.key === snap.key);  
+        console.log('Playlist current list: ', playlistSource);
     })
     
     const onSongAdded = Rx.Observable.create(observer => {
