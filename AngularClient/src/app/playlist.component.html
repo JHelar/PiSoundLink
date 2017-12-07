@@ -1,0 +1,5 @@
+<song-display *ngFor="let song of playlist | async" [class.green]="!song.played" class="w-100 pa2 flex flex-wrap" [song]="song">
+    
+</song-display>
+<p>Add youtube song:</p>
+<youtube (onAdd)="Add($event)"></youtube>

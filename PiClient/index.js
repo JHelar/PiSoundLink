@@ -9,10 +9,12 @@ const players       = require('./common/player');
 const playlist      = require('./common/database').makePlaylist(firebase);
 const util          = require('./common/utils');
 
-const youtube       = players.makeYoutube();
-const player        = players.makePlayer(playlist);
+const player        = require('./common/player').makePlayer(playlist);
+const youtube       = require('./common/players/youtube').makeYoutube();
+const livestream    = require('./common/players/livestream').makeLiveStream();
 
 player.register('Youtube', youtube); 
+player.register('Livestream', livestream);
 player.init();
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));

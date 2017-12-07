@@ -1,0 +1,12 @@
+<div class="white bg-red pa2">
+    <input 
+        [(ngModel)]="youtubeUrl" 
+        #url="ngModel"
+        type="text" 
+        id="youtubeUrl" 
+        placeholder="{{ placeholder }}" 
+        (keyup.enter)="Add()" 
+        class="w5 bn pa2"
+        required/>
+    <button (click)="Add()" class="bn white pa2">Add</button>
+</div>
